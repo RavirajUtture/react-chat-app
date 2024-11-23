@@ -1,6 +1,10 @@
 import express from "express";
 import dotenv from "dotenv"; //env
+import cookieParser from "cookie-parser";
+
 import authRoutes from "./routes/auth.routes.js";
+import messageRoutes from "./routes/message.routes.js"
+
 import connectToMongoDB from "./db/connectToMongoDB.js";
 
 dotenv.config();
@@ -28,9 +32,12 @@ app.get("/", (req, res) => {
 
 //middleware for getting data from frontend.
 app.use(express.json());
+app.use(cookieParser());
+
 
 //to avoid this use middleware
 app.use("/api/auth", authRoutes);
+app.use("/api/messages",messageRoutes);
 
 // app.listen(PORT, () =>
 //   console.log(`Server is running on the port ${PORT}`)
