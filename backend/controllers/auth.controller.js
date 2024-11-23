@@ -45,7 +45,7 @@ export const signup = async (req, res) => {
       await newUser.save();
       console.log("user data is saved successfully.");
 
-      res.status(201).json({
+      return res.status(201).json({
         _id: newUser._id,
         fullName: newUser.fullName,
         username: newUser.username,
