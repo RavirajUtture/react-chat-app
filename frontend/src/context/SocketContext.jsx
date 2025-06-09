@@ -15,12 +15,12 @@ export const SocketContextProvider = ({ children }) => {
 
 	useEffect(() => {
 		if (authUser) {
-			const socket = io("https://react-chat-app-phi-ashy.vercel.app/", {
+			const socket = io("https://react-chat-app-vbks.vercel.app/", {
 				query: {
 					userId: authUser._id,
 				},
 			});
-
+			 
 			setSocket(socket);
 
 			// socket.on() is used to listen to the events. can be used both on client and server side
