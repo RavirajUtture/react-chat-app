@@ -1,7 +1,7 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import { useAuthContext } from "./AuthContext";
 import io from "socket.io-client";
-
+ 
 const SocketContext = createContext();
 
 export const useSocketContext = () => {
@@ -15,7 +15,7 @@ export const SocketContextProvider = ({ children }) => {
 
 	useEffect(() => {
 		if (authUser) {
-			const socket = io("https://react-chat-app-phi-ashy.vercel.app/", {
+			const socket = io(import.meta.env.VITE_BASE_URL, {
 				query: {
 					userId: authUser._id,
 				},
