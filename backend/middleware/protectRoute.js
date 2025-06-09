@@ -3,22 +3,22 @@ import User from "../models/user.model.js";
 
 export const protectRoute = async (req,res,next)=>{
   try{
-    console.log("Cookies: ", req.cookies);
+    // console.log("Cookies: ", req.cookies);
 
 
 
     const token = req.cookies.jwt;
-    console.log("################token =====>",token);
+    // console.log("################token =====>",token);
     if(!token){
         return res.status(401).json({error:"Unauthorized, No token provided."});
     }
     const decoded = jwt.verify(token,process.env.JWT_SECRET);
-    console.log("################token =====>",decoded);
+    // console.log("################token =====>",decoded);
     
 
-    console.log("Cookies:", req.cookies);
-    console.log("Decoded Token:", decoded);
-    console.log("User:", req.user);
+    //console.log("Cookies:", req.cookies);
+    //console.log("Decoded Token:", decoded);
+    //console.log("User:", req.user);
 
 
 
